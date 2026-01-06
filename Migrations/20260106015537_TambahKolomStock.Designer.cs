@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WarungMadura.Data;
 
@@ -10,9 +11,11 @@ using WarungMadura.Data;
 namespace WarungMadura.Migrations
 {
     [DbContext(typeof(ProdukDb))]
-    partial class ProdukDbModelSnapshot : ModelSnapshot
+    [Migration("20260106015537_TambahKolomStock")]
+    partial class TambahKolomStock
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,15 +37,12 @@ namespace WarungMadura.Migrations
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductName")
-                        .IsUnique();
 
                     b.ToTable("Produks");
                 });

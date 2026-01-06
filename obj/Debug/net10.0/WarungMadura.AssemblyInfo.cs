@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WarungMadura")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+319cb349ffdb5cc7a6e4fa5f01cc2fc8c5379d52")]
 [assembly: System.Reflection.AssemblyProductAttribute("WarungMadura")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WarungMadura")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

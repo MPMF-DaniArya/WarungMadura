@@ -116,3 +116,4 @@ C:\Pekerjaan\Program\dotnet\warmad\WarungMadura\obj\Debug\net10.0\refint\WarungM
 C:\Pekerjaan\Program\dotnet\warmad\WarungMadura\obj\Debug\net10.0\WarungMadura.pdb
 C:\Pekerjaan\Program\dotnet\warmad\WarungMadura\obj\Debug\net10.0\WarungMadura.genruntimeconfig.cache
 C:\Pekerjaan\Program\dotnet\warmad\WarungMadura\obj\Debug\net10.0\ref\WarungMadura.dll
+C:\Pekerjaan\Program\dotnet\warmad\WarungMadura\obj\Debug\net10.0\WarungMadura.sourcelink.json

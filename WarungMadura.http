@@ -1,6 +1,13 @@
-@WarungMadura_HostAddress = http://localhost:5062
-
+### get all produk
 GET http://localhost:5062/product
-Accept: application/json
+Content-Type: application/json
 
-###x
+### post produk
+POST http://localhost:5062/product
+Content-Type: application/json
+
+{
+    "ProductName": "AOKA",
+    "Price": 3000,
+    "Stock": 50
+}
