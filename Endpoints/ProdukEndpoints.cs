@@ -1,7 +1,5 @@
 using WarungMadura.DTOs;
-using WarungMadura.Data;
-using WarungMadura.Models;
-using Microsoft.EntityFrameworkCore;
+using WarungMadura.Services;
 
 namespace WarungMadura.Endpoints;
 
@@ -9,12 +7,12 @@ public static class ProductEndpoints
 {
     public static void MapProductEndpoints(this WebApplication app)
     {
-        app.MapGet("/product", async (ProdukDb db) =>
+        app.MapGet("/product", async (IProductService service) =>
         {
-            return await db.Produks.ToListAsync();
+            return await service.GetAllProductAsync();
         });
 
-        app.MapPost("/product", async (ProdukDb db, createProductDTO request) =>
+        app.MapPost("/product", async (IProductService service, CreateProductDto request) =>
         {
             if (string.IsNullOrWhiteSpace(request.ProductName))
             {
@@ -31,24 +29,14 @@ public static class ProductEndpoints
                 return Results.BadRequest("Stock Produk tidak boleh minus");
             }
 
-            var productBaru = new Produk
-            {
-                ProductName = request.ProductName,
-                Price = request.Price,
-                Stock = request.Stock
-            };
+            var result = await service.CreateProductAsync(request);
 
-            try
+            if (result is null)
             {
-                db.Produks.Add(productBaru);
-                await db.SaveChangesAsync();
-                return Results.Ok(productBaru);
-            }
-            catch (DbUpdateException)
-            {
-                return Results.Conflict($"Produk dengan nama '{request.ProductName}' sudah ada!");
+                return Results.Conflict($"Kopi dengan nama '{request.ProductName}' sudah ada!");
             }
 
+            return Results.Ok(result);
         });
     }
 }

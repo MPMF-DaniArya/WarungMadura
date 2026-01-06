@@ -8,6 +8,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ProdukDb>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
+builder.Services.AddScoped<WarungMadura.Services.IProductService, WarungMadura.Services.ProductService>();
+
 var app = builder.Build();
 
 app.MapProductEndpoints();
